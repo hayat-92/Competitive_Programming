@@ -3,26 +3,17 @@
 #include<algorithm>
 using namespace std;
 
-#define int long long
-#define double long double
-
-const int N = (int) 1e6+5;
-vector<bool> sieve;
-
-int32_t main()
-{
-	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	
-	
-
-	int n; cin >> n;
-
-    sieve = vector<bool>(n+1, true);
+int main(){
+    
+    // write your code here
+    int n; cin >> n;
+    vector<bool> sieve;
+    sieve = vector<bool>(n+2, true);
     sieve[0]=false;
     sieve[1]=false;
-	for(int i = 2 ; i*i <= n ; ++i) {
+	for(int i = 2 ; i*i <= n+1 ; ++i) {
 		if(sieve[i]) {
-			for(int j = i*i ; j < n+1 ; j += i) {
+			for(int j = i*i ; j < n+2 ; j += i) {
 				sieve[j] = false;
 			}
 		}
@@ -43,5 +34,5 @@ int32_t main()
 
 	cout << min(cp, cnp) << ' ' << max(cp, cnp) << '\n';
 
-	return 0;
+    return 0;
 }
