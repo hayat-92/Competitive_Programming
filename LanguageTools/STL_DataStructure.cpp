@@ -30,7 +30,7 @@ int main(){
     //
     string s= "Faisal";
     string s1(s, 2,3);
-    cout<<s<<endl;
+    cout<<s[2]<<endl;
     cout<<s1<<endl;
     cout<<&s<<endl;
     cout<<s.find('f')<<endl;
