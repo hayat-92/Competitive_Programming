@@ -9,16 +9,16 @@ int minimumStartingIndex(vector<int> &gas, vector<int> &cost, int n)
         arr[i]=gas[i]-cost[i];
     }
 
-    long trailSum=0;
-    long leadSum=0;
+    int trailSum=0;
+    int leadSum=0;
     int index=0;
     for(int i=0; i<n; i++){
-        if(leadSum==0){
+        if(leadSum==0 && arr[i-1] != 0){
             index=i;
         }
-        leadSum=(long)arr[i]+(long)leadSum;
+        leadSum+=arr[i];
         if(leadSum<0){
-            trailSum=(long)leadSum+trailSum;
+            trailSum+=leadSum;
             leadSum=0;
         }
     }
